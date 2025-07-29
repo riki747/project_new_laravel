@@ -12,7 +12,7 @@ class BarangElektronik extends Model
     // Nama tabel yang digunakan
     protected $table = 'barang_elektronik';
 
-    // Kolom-kolom yang boleh diisi (mass assignment)
+    // Kolom-kolom yang diisi untuk Database
     protected $fillable = [
         'nama_barang',
         'kode_barang',
