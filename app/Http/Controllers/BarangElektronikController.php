@@ -32,13 +32,13 @@ class BarangElektronikController extends Controller
             'nama_barang' => 'required|unique:barang_elektronik',
             'kode_barang' => 'required|unique:barang_elektronik',
             'kategori' => 'required',
-            'merk' => 'nullable',
-            'model' => 'nullable',
+            'merk' => 'required',
+            'model' => 'required',
             'tahun_pembelian' => 'required|integer|min:2000|max:' . date('Y'),
             'kondisi' => 'required|in:Baik,Rusak Ringan,Rusak Berat',
             'jumlah' => 'required|integer|min:1',
             'lokasi_penyimpanan' => 'required',
-            'keterangan' => 'nullable',
+            'keterangan' => 'required',
         ]);
 
         BarangElektronik::create($validated);
@@ -64,13 +64,13 @@ class BarangElektronikController extends Controller
             'nama_barang' => 'required|unique:barang_elektronik,nama_barang,' . $data->id,
             'kode_barang' => 'required|unique:barang_elektronik,kode_barang,' . $data->id,
             'kategori' => 'required',
-            'merk' => 'nullable',
-            'model' => 'nullable',
+            'merk' => 'required',
+            'model' => 'required',
             'tahun_pembelian' => 'required|integer|min:2000|max:' . date('Y'),
             'kondisi' => 'required|in:Baik,Rusak Ringan,Rusak Berat',
             'jumlah' => 'required|integer|min:1',
             'lokasi_penyimpanan' => 'required',
-            'keterangan' => 'nullable',
+            'keterangan' => 'required',
         ]);
 
         $data->update($validated);

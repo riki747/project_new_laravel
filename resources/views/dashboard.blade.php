@@ -1,4 +1,5 @@
 <x-layouts.app :title="__('Dashboard')">
+    <!-- hedaer -->
     <div id="dashboardContent">
         <h1 class="text-2xl font-bold text-center mt-10">
             Selamat datang di Dashboard Inventaris Barang Elektronik Laboratorium
@@ -15,11 +16,11 @@
         </div>
     </div>
 
+    <!-- ui loader -->
     <div id="loaderSection" class="hidden flex flex-col items-center justify-center h-screen">
         <div class="loader mb-4"></div>
         <p>Harap tunggu...</p>
     </div>
-
 
     <script>
         function showLoaderAndLoadInventaris() {
@@ -33,7 +34,7 @@
             setTimeout(() => {
                 document.getElementById('loaderSection').classList.add('hidden');
                 window.location.href = "/inventaris";
-            }, 5000);
+            }, 4000);
         }
 
         window.addEventListener('DOMContentLoaded', () => {
@@ -79,13 +80,12 @@
     </style>
 
 </x-layouts.app>
-
 @php
 function waktu() {
 $hour = now()->format('H');
-if ($hour >= 5 && $hour < 12) return 'pagi' ;
-    elseif ($hour>= 12 && $hour < 15) return 'siang' ;
+    if ($hour >= 5 && $hour < 12) return 'pagi' ;
+        elseif ($hour>= 12 && $hour < 15) return 'siang' ;
         elseif ($hour>= 15 && $hour < 18) return 'sore' ;
-            else return 'malam' ;
-            }
-            @endphp
+        else return 'malam' 
+    ;}
+@endphp

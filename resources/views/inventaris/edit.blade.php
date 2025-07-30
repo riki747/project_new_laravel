@@ -1,10 +1,12 @@
 <x-layouts.app :title="__('Inventaris')">
+    <!-- header -->
     <div class="relative mb-6 w-full">
         <flux:heading size="xl">Barang Elektronik Laboratorium</flux:heading>
         <flux:subheading size="lg" class="mb-6">Edit Barang</flux:subheading>
         <flux:separator variant="subtle" />
     </div>
 
+    <!-- notif -->
     @if(session()->has('successMessage'))
     <div class="mb-3 w-full rounded bg-lime-100 border border-lime-400 text-lime-800 px-4 py-3">
         {{ session()->get('successMessage') }}
@@ -13,6 +15,7 @@
     <flux:badge color="red" class="mb-3 w-full">{{session()->get('errorMessage')}}</flux:badge>
     @endif
 
+    <!-- table -->
     <form action="{{ route('inventaris.update', $data->id) }}" method="post" enctype="multipart/form-data">
         @csrf
         @method('PUT')
@@ -32,6 +35,8 @@
         <flux:input label="Lokasi Penyimpanan" name="lokasi_penyimpanan" value="{{ old('lokasi_penyimpanan', $data->lokasi_penyimpanan) }}" class="mb-3" />
         <flux:textarea label="Keterangan" name="keterangan" class="mb-3">{{ old('keterangan', $data->keterangan) }}</flux:textarea>
         <flux:separator variant="subtle" />
+        
+        <!-- buton -->
         <div class="mt-4">
             <flux:button type="submit" variant="primary">Update</flux:button>
             <flux:button href="{{ route('inventaris.index') }}" variant="ghost" class="ml-3">Back</flux:button>

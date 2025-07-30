@@ -1,8 +1,13 @@
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
 <x-layouts.app :title="__('Inventaris')">
+    <!-- header -->
     <div class="relative mb-6 w-full">
-        <flux:heading size="xl">Barang Elektronik Laboratorium</flux:heading>
+        <a href="{{ route('dashboard') }}">
+            <flux:heading size="xl" class="cursor-pointer hover:text-blue-600 transition">
+                Barang Elektronik Laboratorium
+            </flux:heading>
+        </a>
+
         <flux:subheading size="lg" class="mb-6">Data Barang</flux:subheading>
         <flux:separator variant="subtle" />
     </div>
@@ -30,55 +35,54 @@
     </div>
     @endif
 
-
     <!-- table -->
     <div class="overflow-x-auto">
         <table class="min-w-full leading-normal">
             <thead>
-                <tr class="text-center">
-                    <th class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100  text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                <tr class="text-center text-xs font-semibold text-gray-600 uppercase tracking-wider border-gray-200 bg-gray-100 border-b-2">
+                    <th class="px-5 py-3">
                         ID
                     </th>
-                    <th class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100  text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                    <th class="px-5 py-3">
                         Nama Barang
                     </th>
-                    <th class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100  text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                    <th class="px-5 py-3">
                         Kode Barang
                     </th>
-                    <th class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100  text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                    <th class="px-5 py-3">
                         Kategori
                     </th>
-                    <th class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100  text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                    <th class="px-5 py-3">
                         Merk
                     </th>
-                    <th class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100  text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                    <th class="px-5 py-3">
                         Model
                     </th>
-                    <th class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100  text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                    <th class="px-5 py-3">
                         Tahun Pembelian
                     </th>
-                    <th class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100  text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                    <th class="px-5 py-3">
                         Kondisi
                     </th>
-                    <th class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100  text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                    <th class="px-5 py-3">
                         Jumlah
                     </th>
-                    <th class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100  text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                    <th class="px-5 py-3">
                         Lokasi Penyimpanan
                     </th>
-                    <th class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100  text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                    <th class="px-5 py-3">
                         Keterangan
                     </th>
-                    <th class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100  text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                    <th class="px-5 py-3">
                         Tanggal
                     </th>
-                    <th class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100  text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                    <th class="px-5 py-3">
                         Aksi
                     </th>
                 </tr>
             </thead>
             <tbody>
-                @foreach($data as $key => $product)
+                @foreach($data as $product)
                 <tr class="bg-white hover:bg-gray-300 text-center">
                     <td class="px-5 py-5 border-b border-gray-200 text-sm">
                         <p class="text-gray-900 whitespace-no-wrap">
@@ -168,6 +172,7 @@
     <div class="mt-6">
         {{ $data->links('vendor.pagination.custom-tailwind') }}
     </div>
+
     <script>
         function confirmDelete(id) {
             Swal.fire({
