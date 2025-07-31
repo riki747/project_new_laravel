@@ -13,19 +13,18 @@
     </div>
 
     <!-- search & add -->
-    <div class="flex justify-between items-center mb-4">
+    <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-4 gap-2">
+        <form action="{{ route('inventaris.index') }}" method="get" class="w-full md:w-auto">
+            @csrf
+            <flux:input icon="magnifying-glass" name="cari" value="{{ $cari }}" placeholder="Search Products" class="w-full" />
+        </form>
         <div>
-            <form action="{{ route('inventaris.index') }}" method="get">
-                @csrf
-                <flux:input icon="magnifying-glass" name="cari" value="{{ $cari }}" placeholder="Search Products" />
-            </form>
-        </div>
-        <div>
-            <flux:button icon="plus">
+            <flux:button icon="plus" class="w-full md:w-auto">
                 <flux:link href="{{ route('inventaris.create') }}" variant="subtle">Add New Product</flux:link>
             </flux:button>
         </div>
     </div>
+
 
     <!-- notif -->
     @if (session('successMessage'))

@@ -9,7 +9,7 @@ class BarangElektronikController extends Controller
 {
     public function index(Request $request)
     {
-       // Menangani parameter pencarian dengan default kosong
+        // Menangani parameter pencarian dengan default kosong
         $cari = $request->get('cari', ''); 
 
         // Mencari produk berdasarkan nama dan deskripsi jika ada pencarian
@@ -58,8 +58,8 @@ class BarangElektronikController extends Controller
 
     public function update(Request $request, BarangElektronik $barangElektronik, $id)
     {
-       $data = BarangElektronik::findOrFail($id);
-
+        
+        $data = BarangElektronik::findOrFail($id);
         $validated = $request->validate([
             'nama_barang' => 'required|unique:barang_elektronik,nama_barang,' . $data->id,
             'kode_barang' => 'required|unique:barang_elektronik,kode_barang,' . $data->id,
